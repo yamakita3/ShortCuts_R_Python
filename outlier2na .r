@@ -34,8 +34,7 @@ x[x==0] <- NA;x
 #外れ値をnaにする
 x <- outlier2na(x,band1=2);x
 #naを補完する。
-na.approx(x);x
-
+x <- na.approx(x); x
 ##参考
 #a <- x[,3]
 #d <- 1
