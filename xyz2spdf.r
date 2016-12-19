@@ -15,3 +15,10 @@ xyz2spdf <- function(x.long,y.lat,z.dataframe,crs.prj="+proj=longlat +datum=WGS8
  }
 
 #example
+#df <- (lon=c(135.1,136.2,137,3),lat=c(36.1,37.1,37.3),dat1=c(1:3))
+#df.spdf <- xyz2spdf(df$lon,df$lat,df)
+#spplot(df.spdf[3])
+#require(maptools);
+#writeSpatialShape(df.spdf,"df.spdf")
+#
+
