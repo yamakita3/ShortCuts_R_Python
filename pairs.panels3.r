@@ -7,6 +7,12 @@
 #source("https://raw.githubusercontent.com/yamakita3/RShortCuts/master/pairs.panels3.r")
 #pairs.panels3(x3)
 #scatterplotMatrix(x3,  reg.line=lm, smooth=FALSE, spread=FALSE, span=0.5, ellipse=FALSE, levels=c(.5, .9), id.n=0, diagonal = 'histogram', data=x)
+#
+#reference
+#library("psych")
+#pairs.panels()
+#library("PerformanceAnalytics")
+#chart.Correlation()
 
 
 pairs.panels3 <- function (x, smooth = TRUE, scale = FALSE, density = TRUE, ellipses = TRUE, digits = 2, method = "pearson", pch = 20, lm = FALSE, cor = TRUE, jiggle = FALSE, factor = 2, hist.col = "cyan", show.points = TRUE, rug = TRUE, ...) 
