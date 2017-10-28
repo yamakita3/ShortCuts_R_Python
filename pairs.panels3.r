@@ -1,4 +1,11 @@
 #20150219 yamakita modified from pairs.panels2 and panelcor3.r
+#usage
+#x <- read.table("clipboard",sep="\t",header=T)
+#x2 <- as.matrix(x)
+#x3 <-matrix(as.numeric(x2),nrow=nrow(x2), ncol=ncol(x2))
+#
+#pairs.panels3(x3)
+#
 pairs.panels3 <- function (x, smooth = TRUE, scale = FALSE, density = TRUE, ellipses = TRUE, digits = 2, method = "pearson", pch = 20, lm = FALSE, cor = TRUE, jiggle = FALSE, factor = 2, hist.col = "cyan", show.points = TRUE, rug = TRUE, ...) 
 {
     "panel.jiggle" <- function(x, y, pch = par("pch"), col.smooth = "red", span = 2/3, iter = 3, ...) {
