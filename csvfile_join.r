@@ -10,8 +10,10 @@ write.csv(
 ,file=file.choose(),row.names=F
 )
 
-
-#single line ver
+##testdata
+#write.csv(data.frame(a=c(1:4),b=seq(10,40,by=10)),"divecsv1.csv",row.names=F)
+#write.csv(data.frame(c=c(4:1),d=seq(40,10,len=4)),"hdccsv2.csv",row.names=F)
+#paste("３つのファイル選択画面が順に開きます。結合する順にcsvファイルを選択し、３つめの画面で新しいcsvファイルの名前を.csvまで入力してください。")
 #write.csv(cbind(read.csv(file.choose()),read.csv(file.choose())),file=file.choose(),row.names=F)
 
 
