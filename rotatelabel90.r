@@ -33,6 +33,6 @@ for(i in 1:length(infiles1)){
 	infile <- read.table(infiles1[i],sep=" ",as.is=T,header=F)
 	outfname <- paste(strsplit(infiles1[i],"\\.")[[1]][1],"_r90.txt",sep=" ")
 	result <- rotation90(infile,imgx,imgy)
-	write.table(result,file=outfname,row.names=F,col.names=F,sep=" "
+	write.table(result,file=outfname,row.names=F,col.names=F,sep=" ",quote=F
 	)
 }
