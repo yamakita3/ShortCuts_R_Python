@@ -2,7 +2,7 @@
 #Ditectnetの形式のラベルのテキストファイルが入ったフォルダを指定して、すべてのラベルをXX度回転させた画像に対応するラベルにします。
 #画像のサイズを1248x384、テスト用に90°の値が入っています。
 
-#90deegree rotation
+#XXdeegree rotation
 ##x1 <- read.table("P1010767.txt",sep=" ",as.is=T,header=F)
 #imgx <- 1248; imgy <- 384
 #x1 <- matrix(strsplit(c("Car 0.0 0 0.0 7 4 380 196 0.0 0.0 0.0 0.0 0.0 0.0 0.0")," ")[[1]],nrow=1)
@@ -30,7 +30,7 @@ rotationXX <- function(x1,imgx,imgy,deg){
  return(x2)
 }
 
-imgx <- 1248; imgy <- 384 ;deg <- 90 #Please Modify to Your image size
+imgx <- 1248; imgy <- 384 ;deg <- 90 #Please Modify to Your image size and angle 
 path1 <- choose.dir(getwd(), "Choose a data folder")
 infiles1 <- dir(path1,"*.txt$",full.names=T)
 
