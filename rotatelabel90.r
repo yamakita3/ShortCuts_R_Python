@@ -30,7 +30,7 @@ infiles1 <- dir(path1,"*.txt$")
 outfolder <- path1
 for(i in 1:length(infiles1)){
 	write.csv(
-		rotation90(infiles1[i],imgx,imgy)
+		rotation90(read.table(infiles1[i],sep=" ",as.is=T,header=F),imgx,imgy)
 	,file=paste(strsplit(infiles1[i],"\\.")[[1]][1],"_r90.txt",sep=" "),row.names=F
 	)
 }
