@@ -7,7 +7,11 @@
 #imgx <- 1248; imgy <- 384
 #x1 <- matrix(strsplit(c("Car 0.0 0 0.0 7 4 380 196 0.0 0.0 0.0 0.0 0.0 0.0 0.0")," ")[[1]],nrow=1)
 
-rotationXX <- function(x1,imgx,imgy){
+rotationXX <- function(x1,imgx,imgy,deg){
+ rad <- deg*(pi()/180)
+ imgx2 <- cos(rad)*imgx+sin(rad)*imgy;
+ imgy2 <- cos(rad)*imgy+sin(rad)*imgx;
+	
  x1 <- as.matrix(x1)
  labels <- x1[,1]
  x1 <- matrix(as.numeric(x1[,]),byrow=T,ncol=15)
@@ -20,8 +24,8 @@ rotationXX <- function(x1,imgx,imgy){
  x2 <- x1
  x2[,5]=imgy-yen
  x2[,7]=imgy-yst
- x2[,6]=xst
- x2[,8]=xen
+ x2[,6]= cos(rad)*yst+sin(rad)*xst
+ x2[,8]= x2[,6]+cos(rad)*(yen-yst)+sin(rad)*(xen-xst)
  x2[,1]=labels
  return(x2)
 }
