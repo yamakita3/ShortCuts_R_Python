@@ -21,6 +21,7 @@ rotation90 <- function(x1,imgx,imgy){
  x2[,7]=imgy-yst
  x2[,6]=xst
  x2[,8]=xen
+ x2[,1]=labels
  return(x2)
 }
 
@@ -29,8 +30,9 @@ path1 <- choose.dir(getwd(), "Choose a data folder")
 infiles1 <- dir(path1,"*.txt$",full.names=T)
 outfolder <- path1
 for(i in 1:length(infiles1)){
-	write.csv(
-		rotation90(read.table(infiles1[i]),sep=" ",as.is=T,header=F),imgx,imgy)
-	,file=paste(strsplit(infiles1[i],"\\.")[[1]][1],"_r90.txt",sep=" "),row.names=F
+	write.table(
+	rotation90(read.table(infiles1[i],sep=" ",as.is=T,header=F),imgx,imgy)
+	,file=paste(strsplit(infiles1[i],"\\.")[[1]][1],"_r90.txt",sep=" ")
+	,row.names=F,col.names=F,sep=" "
 	)
 }
