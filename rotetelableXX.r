@@ -7,14 +7,14 @@
 #imgx <- 1248; imgy <- 384
 #x1 <- matrix(strsplit(c("Car 0.0 0 0.0 7 4 380 196 0.0 0.0 0.0 0.0 0.0 0.0 0.0")," ")[[1]],nrow=1)
 
-rotationXX <- function(x1,imgx,imgy,deg, cutpar=0){
+rotationXX <- function(x1,imgx,imgy,deg, cutpar=1){
  rad <- deg*(pi/180)
  imgx2 <- cos(rad)*imgx+sin(rad)*imgy;
  imgy2 <- cos(rad)*imgy+sin(rad)*imgx;
 	
  x1 <- as.matrix(x1)
  labels <- x1[,1]
- x1 <- matrix(as.numeric(x1[,]),byrow=T,ncol=15)
+ x1 <- matrix(as.numeric(x1[,]),byrow=F,ncol=15)
  xst=x1[,5]
  xen=x1[,7]
  yst=x1[,6]
@@ -27,7 +27,7 @@ rotationXX <- function(x1,imgx,imgy,deg, cutpar=0){
  x2[,7]= x2[,5]+cos(rad)*(xen-xst)+sin(rad)*(yen-yst)
  x2[,6]= cos(rad)*yst+sin(rad)*xst
  x2[,8]= x2[,6]+cos(rad)*(yen-yst)+sin(rad)*(xen-xst)
- x2[,1]=labels
+ #x2[,1]=labels
 	
  x3 <- as.matrix(x2) #cut ZZ percentage
  x2bboxlengx <- x2[,7]-x2[,5]
