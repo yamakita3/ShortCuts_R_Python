@@ -21,12 +21,14 @@ rotationXX <- function(x1,imgx,imgy,deg, cutpar=0){
  yen=x1[,8]
  lab=x1[,1]
  ids=1:nrow(x1)
+	
  x2 <- x1
  x2[,5]= cos(rad)*xst+sin(rad)*(imgy-yen)
  x2[,7]= x2[,5]+cos(rad)*(xen-xst)+sin(rad)*(yen-yst)
  x2[,6]= cos(rad)*yst+sin(rad)*xst
  x2[,8]= x2[,6]+cos(rad)*(yen-yst)+sin(rad)*(xen-xst)
  x2[,1]=labels
+	
  x3 <- x2 #cut ZZ percentage
  x2bboxlengx <- x2[,7]-x2[,5]
  x2bboxlengy <- x2[,8]-x2[,6]
