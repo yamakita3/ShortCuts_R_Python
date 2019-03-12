@@ -7,7 +7,7 @@
 #imgx <- 1248; imgy <- 384
 #x1 <- matrix(strsplit(c("Car 0.0 0 0.0 7 4 380 196 0.0 0.0 0.0 0.0 0.0 0.0 0.0")," ")[[1]],nrow=1)
 
-rotationXX <- function(x1,imgx,imgy,deg){
+rotationXX <- function(x1,imgx,imgy,deg, cutpar=0){
  rad <- deg*(pi/180)
  imgx2 <- cos(rad)*imgx+sin(rad)*imgy;
  imgy2 <- cos(rad)*imgy+sin(rad)*imgx;
@@ -27,17 +27,24 @@ rotationXX <- function(x1,imgx,imgy,deg){
  x2[,6]= cos(rad)*yst+sin(rad)*xst
  x2[,8]= x2[,6]+cos(rad)*(yen-yst)+sin(rad)*(xen-xst)
  x2[,1]=labels
- return(x2)
+ x3 <- x2 #cut ZZ percentage
+ x2bboxlengx <- x2[,7]-x2[,5]
+ x2bboxlengy <- x2[,8]-x2[,6]
+ x3[,5]= x2[,5]+x2bboxlengx/cutpar
+ x3[,7]= x2[,7]-x2bboxlengx/cutpar
+ x3[,6]= x2[,6]+x2bboxlengy/cutpar
+ x3[,8]= x2[,8]-x2bboxlengy/cutpar
+ return(x3)	
 }
 
-imgx <- 1248; imgy <- 384 ;deg <- 90 #Please Modify to Your image size and angle 
+imgx <- 1248; imgy <- 384 ;deg <- 90; cutpar1 <- 10 #Please Modify to Your image size and angle 
 path1 <- choose.dir(getwd(), "Choose a data folder")
 infiles1 <- dir(path1,"*.txt$",full.names=T)
 
 for(i in 1:length(infiles1)){
 	infile <- read.table(infiles1[i],sep=" ",as.is=T,header=F)
 	outfname <- paste(strsplit(infiles1[i],"\\.")[[1]][1],"_r",deg,".txt",sep=" ")
-	result <- rotationXX(infile,imgx,imgy,deg)
+	result <- rotationXX(infile,imgx,imgy,deg,cutpar=cutpar1)
 	write.table(result,file=outfname,row.names=F,col.names=F,sep=" ",quote=F
 	)
 }
