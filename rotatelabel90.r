@@ -28,11 +28,11 @@ rotation90 <- function(x1,imgx,imgy){
 imgx <- 1248; imgy <- 384
 path1 <- choose.dir(getwd(), "Choose a data folder")
 infiles1 <- dir(path1,"*.txt$",full.names=T)
-outfolder <- path1
+
 for(i in 1:length(infiles1)){
-	write.table(
-	rotation90(read.table(infiles1[i],sep=" ",as.is=T,header=F),imgx,imgy)
-	,file=paste(strsplit(infiles1[i],"\\.")[[1]][1],"_r90.txt",sep=" ")
-	,row.names=F,col.names=F,sep=" "
+	infile <- read.table(infiles1[i],sep=" ",as.is=T,header=F)
+	outfname <- paste(strsplit(infiles1[i],"\\.")[[1]][1],"_r90.txt",sep=" ")
+	result <- rotation90(infile,imgx,imgy)
+	write.table(result,file=outfname,row.names=F,col.names=F,sep=" "
 	)
 }
