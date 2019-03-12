@@ -26,6 +26,7 @@ rotation90 <- function(x1,imgx,imgy){
 
 imgx <- 1248; imgy <- 384
 path1 <- choose.dir(getwd(), "Choose a data folder")
+setwd(path1)
 infiles1 <- dir(path1,"*.txt$")
 outfolder <- path1
 for(i in 1:length(infiles1)){
