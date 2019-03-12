@@ -29,13 +29,14 @@ rotationXX <- function(x1,imgx,imgy,deg, cutpar=0){
  x2[,8]= x2[,6]+cos(rad)*(yen-yst)+sin(rad)*(xen-xst)
  x2[,1]=labels
 	
- x3 <- x2 #cut ZZ percentage
+ x3 <- as.matrix(x2) #cut ZZ percentage
  x2bboxlengx <- x2[,7]-x2[,5]
  x2bboxlengy <- x2[,8]-x2[,6]
  x3[,5]= x2[,5]+x2bboxlengx/cutpar
  x3[,7]= x2[,7]-x2bboxlengx/cutpar
  x3[,6]= x2[,6]+x2bboxlengy/cutpar
  x3[,8]= x2[,8]-x2bboxlengy/cutpar
+ x3[,1]=labels
  return(x3)	
 }
 
