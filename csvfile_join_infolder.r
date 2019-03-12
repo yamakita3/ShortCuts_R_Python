@@ -4,17 +4,14 @@ winDialog("ok","フォルダの選択画面が開きます。
 数字、abc順に結合され、.で区切ったファイル名に_cind_hdc_csvとつけて出力
 します")
 path1 <- choose.dir(getwd(), "Choose a data folder")
-infiles1 <- dir(path1,"^dive.*\\.csv$")
-infiles2 <- dir(path1,"^hdc.*\\.csv$")
+infiles1 <- dir(path1,"^dive.*\\.csv$",full.names=T)
+infiles2 <- dir(path1,"^hdc.*\\.csv$",full.names=T)
 outfolder <- path1
 if(length(infiles1)!=length(infiles2)){
 	warning("different number of files")
 }
 for(i in 1:length(infiles1)){
-	write.csv(
-		cbind(
-			read.csv(infiles1[i]),read.csv(infiles2[i])
-		)
-	,file=paste(strsplit(infiles1[1],"\\.")[[1]][1],"_cbind_hdc.csv",sep=""),row.names=F
-	)
+	result <- cbind(read.csv(infiles1[i]),read.csv(infiles2[i]))
+	outfilename <-paste(strsplit(infiles1[1],"\\.")[[1]][1],"_cbind_hdc.csv",sep="") 
+	write.csv(result,file=outfilename,row.names=F)
 }
