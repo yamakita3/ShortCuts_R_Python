@@ -8,7 +8,7 @@
 #x1 <- matrix(strsplit(c("Car 0.0 0 0.0 7 4 380 196 0.0 0.0 0.0 0.0 0.0 0.0 0.0")," ")[[1]],nrow=1)
 
 rotationXX <- function(x1,imgx,imgy,deg){
- rad <- deg*(pi()/180)
+ rad <- deg*(pi/180)
  imgx2 <- cos(rad)*imgx+sin(rad)*imgy;
  imgy2 <- cos(rad)*imgy+sin(rad)*imgx;
 	
