@@ -22,22 +22,22 @@ rotationXX <- function(x1,imgx,imgy,deg){
  lab=x1[,1]
  ids=1:nrow(x1)
  x2 <- x1
- x2[,5]=imgy-yen
- x2[,7]=imgy-yst
+ x2[,5]= cos(rad)*xst+sin(rad)*(imgy-yen)
+ x2[,7]= x2[,5]+cos(rad)*(xen-xst)+sin(rad)*(yen-yst)
  x2[,6]= cos(rad)*yst+sin(rad)*xst
  x2[,8]= x2[,6]+cos(rad)*(yen-yst)+sin(rad)*(xen-xst)
  x2[,1]=labels
  return(x2)
 }
 
-imgx <- 1248; imgy <- 384  #Please Modify to Your image size
+imgx <- 1248; imgy <- 384 ;deg <- 90 #Please Modify to Your image size
 path1 <- choose.dir(getwd(), "Choose a data folder")
 infiles1 <- dir(path1,"*.txt$",full.names=T)
 
 for(i in 1:length(infiles1)){
 	infile <- read.table(infiles1[i],sep=" ",as.is=T,header=F)
-	outfname <- paste(strsplit(infiles1[i],"\\.")[[1]][1],"_r90.txt",sep=" ")
-	result <- rotationXX(infile,imgx,imgy)
+	outfname <- paste(strsplit(infiles1[i],"\\.")[[1]][1],"_r",deg,".txt",sep=" ")
+	result <- rotationXX(infile,imgx,imgy,deg)
 	write.table(result,file=outfname,row.names=F,col.names=F,sep=" ",quote=F
 	)
 }
