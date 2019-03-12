@@ -1,6 +1,6 @@
-#フォルダの同じ名前のファイルのcsvを結合して新しいcsvに出力する。
-
-#1248x384
+#Rotete DITECTNET label 90degree
+#Ditectnetの形式のラベルのテキストファイルが入ったフォルダを指定して、すべてのラベルを90度回転させた画像に対応するラベルにします。
+#画像のサイズを1248x384に対応させています。
 
 #90deegree rotation
 ##x1 <- read.table("P1010767.txt",sep=" ",as.is=T,header=F)
@@ -26,7 +26,7 @@ rotation90 <- function(x1,imgx,imgy){
  return(x2)
 }
 
-imgx <- 1248; imgy <- 384
+imgx <- 1248; imgy <- 384  #Please Modify to Your image size
 path1 <- choose.dir(getwd(), "Choose a data folder")
 infiles1 <- dir(path1,"*.txt$",full.names=T)
 
