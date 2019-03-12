@@ -8,6 +8,7 @@
 #x1 <- matrix(strsplit(c("Car 0.0 0 0.0 7 4 380 196 0.0 0.0 0.0 0.0 0.0 0.0 0.0")," ")[[1]],nrow=1)
 
 rotation90 <- function(x1,imgx,imgy){
+ x1 <- as.matrix(x1)
  labels <- x1[,1]
  x1 <- matrix(as.numeric(x1[,]),byrow=T,ncol=15)
  xst=x1[,5]
