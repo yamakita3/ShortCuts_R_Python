@@ -1,13 +1,13 @@
 #Rotete DITECTNET label XXdegree
 #Ditectnetの形式のラベルのテキストファイルが入ったフォルダを指定して、すべてのラベルをXX度回転させた画像に対応するラベルにします。
-#画像のサイズを1248x384、テスト用に90°の値が入っています。
+#画像のサイズを1248x384、テスト用に90°回転とサイズの10%分枠を縮小する値が入っています。枠を縮小させない場合1を入れてください。
 
 #XXdeegree rotation
 ##x1 <- read.table("P1010767.txt",sep=" ",as.is=T,header=F)
 #imgx <- 1248; imgy <- 384
 #x1 <- matrix(strsplit(c("Car 0.0 0 0.0 7 4 380 196 0.0 0.0 0.0 0.0 0.0 0.0 0.0")," ")[[1]],nrow=1)
 
-rotationXX <- function(x1,imgx,imgy,deg, cutpar=1){
+rotationXX <- function(x1,imgx,imgy,deg,cutpar){
  rad <- deg*(pi/180)
  imgx2 <- cos(rad)*imgx+sin(rad)*imgy;
  imgy2 <- cos(rad)*imgy+sin(rad)*imgx;
@@ -40,14 +40,14 @@ rotationXX <- function(x1,imgx,imgy,deg, cutpar=1){
  return(x3)	
 }
 
-imgx <- 1248; imgy <- 384 ;deg <- 90; cutpar1 <- 10 #Please Modify to Your image size and angle 
+imgx <- 1248; imgy <- 384 ;deg <- 90; cutpar <- 10 #Please Modify to Your image size and angle 
 path1 <- choose.dir(getwd(), "Choose a data folder")
 infiles1 <- dir(path1,"*.txt$",full.names=T)
 
 for(i in 1:length(infiles1)){
 	infile <- read.table(infiles1[i],sep=" ",as.is=T,header=F)
 	outfname <- paste(strsplit(infiles1[i],"\\.")[[1]][1],"_r",deg,".txt",sep=" ")
-	result <- rotationXX(infile,imgx,imgy,deg,cutpar=cutpar1)
+	result <- rotationXX(infile,imgx,imgy,deg,cutpar)
 	write.table(result,file=outfname,row.names=F,col.names=F,sep=" ",quote=F
 	)
 }
