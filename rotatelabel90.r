@@ -37,3 +37,5 @@ for(i in 1:length(infiles1)){
 	write.table(result,file=outfname,row.names=F,col.names=F,sep=" ",quote=F
 	)
 }
+
+#end
