@@ -24,12 +24,13 @@ rotation90 <- function(x1,imgx,imgy){
  return(x2)
 }
 
+imgx <- 1248; imgy <- 384
 path1 <- choose.dir(getwd(), "Choose a data folder")
 infiles1 <- dir(path1,"*.txt$")
 outfolder <- path1
 for(i in 1:length(infiles1)){
 	write.csv(
-		rotation90(x1,imgx,imgy)
-	,file=paste(strsplit(infiles1[1],"\\.")[[1]][1],"_r90.txt",sep=" "),row.names=F
+		rotation90(infiles1[i],imgx,imgy)
+	,file=paste(strsplit(infiles1[i],"\\.")[[1]][1],"_r90.txt",sep=" "),row.names=F
 	)
 }
