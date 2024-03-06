@@ -1,5 +1,5 @@
 
-This python command outputs shape and kml files from the well known text (WKT) format, which is GIS data in text format.
+This python command outputs shapefile and kml files from the well known text (WKT) format, which is GIS data in text format.
 Prepare a csv file in the format described at the end of the file, place it in the same folder, and use it as follows
 "python3 convert_wkt_to_kml_shp2_run.py input_data.csv wkt output_data.kml output_data.shp"
 
