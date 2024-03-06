@@ -11,7 +11,7 @@ rem バックスラッシュをスラッシュに置換
 set "script_dir=%script_dir:\=/%"
 
 rem WSL2上でPythonスクリプトを実行
-wsl python3 "/mnt/c%script_dir%/test_convert_wkt_to_kml_shp_v2.py"  %*
+wsl python3 "/mnt/c%script_dir%/convert_wkt_to_kml_shp_v2_run.py"  %*
 
 endlocal
 rem cmd /k
