@@ -1,0 +1,5 @@
+id,name,wkt
+1,Point A,POINT(1.0 2.0)
+2,Point B,POINT(3.0 4.0)
+3,Point C,POINT(5.0 6.0)
+4,Point D,POINT(7.0 8.0)
