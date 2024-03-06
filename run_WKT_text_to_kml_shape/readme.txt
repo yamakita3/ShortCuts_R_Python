@@ -8,6 +8,8 @@ To run it with Python3 and geopandas installed in the Windows WSL.
 This windows batch automatically creates kml and shp with no options, 
 using the information in the wkt column from the csv file initially found in the folder.
 
+So far this is tested only for point data.
+
 テキスト形式のGISデータであるWell known text (WKT)フォーマットから、shapeファイルとkmlファイルを出力するpythonコマンドです。
 末尾に記載のフォーマットのcsvファイルを用意して同じフォルダ内に置き、以下のように使用します。
 "python3 convert_wkt_to_kml_shp2_run.py input_data.csv wkt output_data.kml output_data.shp"
@@ -15,6 +17,7 @@ using the information in the wkt column from the csv file initially found in the
 同胞のbatchファイルは、WindowsのWSLにPython3、geopandasが導入された状態で、実行したいフォルダに設置することで、
 自動的にフォルダ内で初めに見つかったcsvファイルからwktコラムの情報を用いて、kmlとshpをオプション無しで作成するものです。
 
+今のところポイントデータのみでテストしてしています。
 
 ##################
 ##CSV format
